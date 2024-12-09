@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Оформление билетов</h1>
+    </header>
+    <main>
+        <form id="orderForm">
+            <label for="firstName">Имя:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Фамилия:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="phone">Номер телефона:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Электронная почта:</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="button" id="submitOrder">Оформить заказ</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; ЖЩ 2024</p>
+        <p><a href="index.html">Назад на Главную</a></p>
+    </footer>
+    <script>
+        document.getElementById('submitOrder').addEventListener('click', () => {
+            const form = document.getElementById('orderForm');
+            let valid = true;
+
+            // Check all required fields
+            form.querySelectorAll('input[required]').forEach(input => {
+                if (!input.value.trim()) {
+                    valid = false;
+                    input.style.borderColor = 'red';
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+
+            if (valid) {
+                window.location.href = 'https://music.yandex.ru/artist/3718676';
+            }
+        });
+    </script>
+</body>
+</html>
